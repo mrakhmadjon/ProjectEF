@@ -1,4 +1,7 @@
-﻿using ProjectEF.Service.Interfaces;
+﻿using ProjectEF.Data.IRepositories;
+using ProjectEF.Data.Repositories;
+using ProjectEF.Domain.Models;
+using ProjectEF.Service.Interfaces;
 using ProjectEF.Service.Services;
 using System;
 using System.Threading.Tasks;
@@ -9,11 +12,11 @@ namespace ProjectEF
     {
         static async Task Main(string[] args)
         {
-            IStudentService studentService = new StudentService();
+            
+            
 
-            var student = await studentService.GetAsync(p => p.Id == 1);
 
-            Console.WriteLine(student.Id + " " + student.FirstName);
+
         }
     }
 }
