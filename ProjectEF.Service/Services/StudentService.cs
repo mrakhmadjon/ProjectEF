@@ -31,7 +31,7 @@ namespace ProjectEF.Service.Services
         {
            IQueryable<Student> students =  await _studentRepository.GetAllAsync(predicate);
 
-            return students.Include(p => p.Group).ThenInclude(p => p.Subject).Skip(pageSize * (pageIndex-1)).Take(pageSize);
+            return students.Include("Group.Subject").Skip(pageSize * (pageIndex-1)).Take(pageSize);
 
         }
 
