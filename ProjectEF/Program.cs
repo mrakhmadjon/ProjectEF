@@ -14,9 +14,15 @@ namespace ProjectEF
         {
             
             
+            IStudentService studentService = new StudentService();
+
+           var students = await studentService.GetAllInfoAsync(2, 1);
 
 
-
+            foreach (var st in students)
+            {
+                Console.WriteLine($"{st.FirstName}  {st.LastName}  {st.Group.Name}");
+            }
         }
     }
 }

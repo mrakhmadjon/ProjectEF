@@ -16,6 +16,6 @@ namespace ProjectEF.Service.Interfaces
 
         Task<IEnumerable<Student>> GetAllAsync(int pageSize,int pageIndex,Expression<Func<Student,bool>> predicate);
 
-
+        Task<IEnumerable<Student>> GetAllInfoAsync(int pageSize, int pageIndex, Expression<Func<Student, bool>> predicate = null);
     }
 }

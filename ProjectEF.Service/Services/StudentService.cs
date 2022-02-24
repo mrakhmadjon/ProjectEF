@@ -27,6 +27,14 @@ namespace ProjectEF.Service.Services
             return await students.Skip(pageSize * (pageIndex - 1)).Take(pageIndex).ToListAsync();
         }
 
+        public async Task<IEnumerable<Student>> GetAllInfoAsync(int pageSize, int pageIndex, Expression<Func<Student, bool>> predicate = null)
+        {
+           IQueryable<Student> students =  await _studentRepository.GetAllAsync(predicate);
+
+            return students.Include(p => p.Group).ThenInclude(p => p.Subject).Skip(pageSize * (pageIndex-1)).Take(pageSize);
+
+        }
+
         public Task<Student> GetAsync(Expression<Func<Student, bool>> predicate)
         {
             var entity = _studentRepository.GetAsync(predicate);

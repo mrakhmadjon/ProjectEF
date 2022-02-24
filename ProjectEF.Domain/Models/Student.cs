@@ -34,5 +34,13 @@ namespace ProjectEF.Domain.Models
 
         [Column("password"), MaxLength(20)]
         public string Password { get; set; }
+
+
+        [Column("group_id")]
+        public int GroupId { get; set; }
+
+        [ForeignKey(nameof(GroupId))]
+        public Group Group { get; set; }
+
     }
 }
